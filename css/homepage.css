@@ -9,12 +9,19 @@
 .two-column {
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
 }
 
 .two-column>*:nth-child(1) {
-  flex: 2;
+  flex: 3;
 }
 
 .two-column>*:nth-child(2) {
   flex: 1;
+}
+
+.two-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex;
 }

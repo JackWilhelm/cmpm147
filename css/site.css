@@ -7,10 +7,16 @@ h1, h2 {
 
 #content {
   width: calc(100% - 30px);
-  margin: 10px;080;
+  margin: 10px;
   padding: 10px;
-  border: solid 1px #808;
-  font-family: sans-serif;
+  border: solid 10px rgb(0, 0, 0);
+  font-family: 'Courier New', monospace;
+  background-color: rgb(63, 57, 0);
+}
+
+body {
+	background-color: rgb(214, 179, 80);
+  color:white;
 }
 
 .minor-section {
@@ -18,10 +24,15 @@ h1, h2 {
   padding: 10px;
   border: solid 1px #A0A0A0;
   border-radius: 10px;
+  color:rgb(255, 255, 255)
+}
+
+a {
+  color: white;
 }
 
 .minor-section h2 {
-  font-size: 1.2em;
+  font-size: 2.2em;
 }
 
 /* Set the image to be responsive */
