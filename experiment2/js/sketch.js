@@ -21,7 +21,7 @@ const randomCloudColorChangeAmount = 35;
 const randomStoneColorChangeAmount = 10;
 const mountainOffset = 150;
 const mountains = 3;
-const trees = 100;
+const trees = 200;
 let treesYList = [];
 let treesXList = [];
 const clouds = 30;
@@ -161,7 +161,7 @@ function draw() {
     treesYList[i] += 1.5
     let y = treesYList[i];
     if (treesXList[i] < width/2) {
-      treesXList[i] -= 1.25;
+      treesXList[i] -= 0.75;
       if (treesXList[i] < 0) {
         treesYList[i] = height/2 + (25 * random())
         treesXList[i] = ((width/farRoadWidth * 5) * (random()) + (width/farRoadWidth * 4.5));
@@ -172,7 +172,7 @@ function draw() {
         random()
       }
     } else {
-      treesXList[i] += 1.25;
+      treesXList[i] += 0.75;
       if (treesXList[i] > width) {
         treesYList[i] = height/2 + (25 * random())
         treesXList[i] = ((width/farRoadWidth * 5) * -(random()) + (width/farRoadWidth * 4.5));
@@ -200,8 +200,10 @@ function draw() {
     }
     y = treesYList[i]
     let x = treesXList[i];
-    let s = lerp(10, 100, (y - (height/2))/(height/2));
-    triangle(x, y - s - 20, x - s / 4, y, x + s / 4, y);
+    let offset = 10
+    let s = lerp(10, 200, (y - (height/2))/(height/2));
+    s *= lerp(0.25, 1, abs(x - (width/2))/(width/2));
+    triangle(x, y - s - offset - 25, x - s / 4, y - offset, x + s / 4, y - offset);
   }
 
   
