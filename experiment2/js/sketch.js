@@ -8,6 +8,7 @@ const stoneColor = "#3a4b56";
 const treeColor = "#214900";
 const roadColor = "#3c3334";
 const roadLineColor = "#fdc327";
+const cloudColor = "#0e217f";
 let stripX = 5;
 let stripY = 50;
 let stripPosY = 0;
@@ -15,10 +16,12 @@ const baseRoadWidth = 3;
 const farRoadWidth = 9;
 const treeSpeedY = 0.5;
 const treeSpeedX = 4000;
-const randomColorChangeAmount = 20;
+const randomTreeColorChangeAmount = 20;
+const randomCloudColorChangeAmount = 35;
 const trees = 100;
 let treesYList = [];
 let treesXList = [];
+const clouds = 30;
 
 const VALUE1 = 1;
 const VALUE2 = 2;
@@ -86,6 +89,20 @@ function draw() {
   fill(skyColor);
   rect(0, 0, width, height / 2);
 
+  for (let i = 0; i < clouds; i++) {
+    let newCloudColor = color(
+      red(cloudColor) + random(-randomCloudColorChangeAmount, randomCloudColorChangeAmount), 
+     green(cloudColor) + random(-randomCloudColorChangeAmount, randomCloudColorChangeAmount), 
+     blue(cloudColor) + random(-randomCloudColorChangeAmount, randomCloudColorChangeAmount), 
+    random() * 150);
+     fill(newCloudColor);
+    let z = random(0.1, 0.4);
+    let x = width * ((random() + (millis() / 500000.0) / z) % 1);
+    let y = random(height/8, height/2);
+    let s = random(100, 200);
+    ellipse(x, y, s, s - 50);
+  }
+
   fill(grassColor);
   rect(0, height / 2, width, height / 2);
   
@@ -99,11 +116,16 @@ function draw() {
   endShape(CLOSE);
   
   fill(roadLineColor);
+  /*
   rect(width/2 - stripX/2, height/2 - stripY + stripPosY, stripX, stripY)
   stripPosY += 1.5
   if (stripY + stripPosY > height) {
     stripPosY = 0
-  }
+  }*/
+  rect(width/2 - stripX/2, height/2 - stripY + stripPosY, stripX, stripY)
+
+
+  
   
   fill(stoneColor);
   beginShape();
@@ -118,12 +140,11 @@ function draw() {
   vertex(width, height / 2);
   endShape(CLOSE);
   
-  
   for (let i = 0; i < trees; i++) {
     let newTreeColor = color(
-      red(treeColor) + random(-randomColorChangeAmount, randomColorChangeAmount), 
-     green(treeColor) + random(-randomColorChangeAmount, randomColorChangeAmount), 
-     blue(treeColor) + random(-randomColorChangeAmount, randomColorChangeAmount));
+      red(treeColor) + random(-randomTreeColorChangeAmount, randomTreeColorChangeAmount), 
+     green(treeColor) + random(-randomTreeColorChangeAmount, randomTreeColorChangeAmount), 
+     blue(treeColor) + random(-randomTreeColorChangeAmount, randomTreeColorChangeAmount));
       fill(newTreeColor);
     let z = 0.75;
     treesYList[i] += 1.5
@@ -171,4 +192,6 @@ function draw() {
     let s = lerp(10, 100, (y - (height/2))/(height/2));
     triangle(x, y - s - 20, x - s / 4, y, x + s / 4, y);
   }
+
+  
 }
