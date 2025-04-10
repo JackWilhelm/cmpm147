@@ -19,7 +19,6 @@ const treeSpeedX = 4000;
 const randomTreeColorChangeAmount = 20;
 const randomCloudColorChangeAmount = 35;
 const randomStoneColorChangeAmount = 10;
-const mountainOffset = 150;
 const mountains = 3;
 const trees = 200;
 let treesYList = [];
@@ -102,7 +101,7 @@ function draw() {
     let z = random(0.1, 0.4);
     let x = width * ((random() + (millis() / 500000.0) / z) % 1);
     let y = random(height/8, height/2);
-    let s = random(100, 200);
+    let s = random(height/3, (height/3) * 2);
     ellipse(x, y, s, s - 50);
   }
 
@@ -128,6 +127,8 @@ function draw() {
     stripPosY = 0
     stripY = 0
   }
+
+  let mountainOffset = height/2
 
   for (let i = 0; i < mountains; i++) {
     let newStoneColor = color(
@@ -200,11 +201,9 @@ function draw() {
     }
     y = treesYList[i]
     let x = treesXList[i];
-    let offset = 10
-    let s = lerp(10, 200, (y - (height/2))/(height/2));
+    let offset = height/30
+    let s = lerp(height/30, (height/3)*2, (y - (height/2))/(height/2));
     s *= lerp(0.25, 1, abs(x - (width/2))/(width/2));
     triangle(x, y - s - offset - 25, x - s / 4, y - offset, x + s / 4, y - offset);
   }
-
-  
 }
