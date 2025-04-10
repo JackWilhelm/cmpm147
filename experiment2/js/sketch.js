@@ -18,6 +18,9 @@ const treeSpeedY = 0.5;
 const treeSpeedX = 4000;
 const randomTreeColorChangeAmount = 20;
 const randomCloudColorChangeAmount = 35;
+const randomStoneColorChangeAmount = 10;
+const mountainOffset = 150;
+const mountains = 3;
 const trees = 100;
 let treesYList = [];
 let treesXList = [];
@@ -126,10 +129,13 @@ function draw() {
     stripY = 0
   }
 
-
+  for (let i = 0; i < mountains; i++) {
+    let newStoneColor = color(
+      red(stoneColor) + random(-randomStoneColorChangeAmount, randomStoneColorChangeAmount), 
+     green(stoneColor) + random(-randomStoneColorChangeAmount, randomStoneColorChangeAmount), 
+     blue(stoneColor) + random(-randomStoneColorChangeAmount, randomStoneColorChangeAmount));  
   
-  
-  fill(stoneColor);
+  fill(newStoneColor);
   beginShape();
   vertex(0, height / 2);
   const steps = 10;
@@ -137,10 +143,13 @@ function draw() {
     let x = (width * i) / steps;
     let y =
       height / 2 - (random() * random() * random() * height) / 2 - height / 10;
+    y -= (height/mountainOffset) * i;
+    y += 25
     vertex(x, y);
   }
   vertex(width, height / 2);
   endShape(CLOSE);
+  } 
   
   for (let i = 0; i < trees; i++) {
     let newTreeColor = color(
