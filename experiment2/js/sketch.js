@@ -10,7 +10,7 @@ const roadColor = "#3c3334";
 const roadLineColor = "#fdc327";
 const cloudColor = "#0e217f";
 let stripX = 5;
-let stripY = 50;
+let stripY = 0; //50
 let stripPosY = 0;
 const baseRoadWidth = 3;
 const farRoadWidth = 9;
@@ -116,13 +116,15 @@ function draw() {
   endShape(CLOSE);
   
   fill(roadLineColor);
-  /*
   rect(width/2 - stripX/2, height/2 - stripY + stripPosY, stripX, stripY)
   stripPosY += 1.5
+  if (stripY < 50) {
+    stripY += 1.5
+  }
   if (stripY + stripPosY > height) {
     stripPosY = 0
-  }*/
-  rect(width/2 - stripX/2, height/2 - stripY + stripPosY, stripX, stripY)
+    stripY = 0
+  }
 
 
   
