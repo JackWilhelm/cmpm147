@@ -2,7 +2,7 @@
 <html>
 <head>
 	<!-- This title is used for tabs and bookmarks -->
-	<title>Experiment X - Subject/Topic</title>
+	<title>Experiment 3 - Alternate Worlds</title>
 
 	<!-- Use UTF character set, a good idea with any webpage -->
 	<meta charset="UTF-8" />
@@ -32,11 +32,38 @@
 	<main id="content">
 		<section>
 
-			<h1>Experiment X - Subject/Topic</h1>
+			<h1>Experiment 3 - Alternate Worlds</h1>
 
 			<div class="minor-section">
 				<div id="canvas-container">
-					<!-- canvas will be added here -->
+					<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Alternate Worlds</title>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js"
+      integrity="sha512-b/htz6gIyFi3dwSoZ0Uv3cuv3Ony7EeKkacgrcVg8CMzu90n777qveu0PBcbZUA7TzyENGtU+qZRuFAkfqgyoQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="/p2_base.js" defer></script>
+    <script src="/p2_solution.js" defer></script>
+  </head>
+  <body>
+    <button id="reseedButton">
+      reseed
+    </button>
+    <span id="seedReport"></span>
+    <hr />
+    <span id="canvasContainer" style="margin: 10px;"></span>
+    <textarea cols="20" rows="20" id="asciiBox" style="opacity: 0.5; letter-spacing: 1ex; width: 320px; margin: 10px; font-family: monospace;"></textarea>
+    
+  </body>
+</html>
 				</div>
                 <div class="fullscreen-box">
                     <button id="fullscreen">Fullscreen</button>
@@ -45,17 +72,21 @@
 
 			<div class="minor-section">
 				<h2>Description</h2>
-				<p>What are you trying to acomplish with this experiment?</p>
+				<p>Description: This generator creates both maps for dungeons and overworlds. Pressing reseed will cause a random dungeon or overworld to mapped and tiled. Different kinds of tiles that are next to each other are automatically blended together.
+
+					Codes: "." = Ground/Floor "_" = Dirt/Ocean
+					
+					Life: The overworld shows the shadows of clouds passing by and the dungeon map shows a constantly random moving enemy.</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Technical</h2>
-				<p>Describe in detail what you did technically and how it works?</p>
+				<p>A 2D matrix is created each with a unique code representing a different kind of tile. The placement of these tiles is based on creating random square spaces and declaring all points in the matrix cooresponding with those points is a certain kind of code. Each grid space then looks at its surrounding grid cells and overlays certain blending sprites to make certain transitions.</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Reflection</h2>
-				<p>Each person that worked on the code should reflect on the process, the difficulties, and the successes of the experiment.</p>
+				<p>Jack Wilhelm - This experiment was fun and challenging. Most sprite sheets have pre made sprites that transition one type of terrain into another, but with this I have to get a little creative with overlaying certain sprites on one another to make a transition. I had some trouble with making that hallways that connected every single room of the dungeons but then realized I was overthinking it. What I eventuall did was have, for each room, select a random point in that room plus a random point in another room, then have a path go up/down then left/right till it reached the other space. This allowed each room to have at least 1 connection to another room.</p>
 			</div>
 
 		</section>
