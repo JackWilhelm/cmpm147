@@ -35,7 +35,7 @@
 	<main id="content">
 		<section>
 
-			<h1>Experiment 2 - Road to a Golden Sky</h1>
+			<h1>Experiment 4 - Infinite Q*bert</h1>
 
 			<div class="minor-section">
 				<div id="canvas-container">
@@ -48,14 +48,23 @@
 
 			<div class="minor-section">
 				<h2>Description</h2>
+				<p>I used the infinite extent of my world to represent the game world of popular 1900's arcade games going beyond the arcade machine. This infinite world is inspired by the game Q*bert which follows and orange "noser" that hops around on tiles lighting each one up with the goal of lighting every tile. This version of the game is endless and thus unbeatable in Q*berts terms. This world shows what lies in "Q*bert's world" beyond what the small machine screen shows you.
+
+					As the audience browses my world, they’ll see differetn shapes and sizes of platforms. Each platform has a "city" tile which when detected by the program will spawn nearby tiles called "populated areas". These make up the seemingly random yet determinalistically repeatable spaces for Q*bert to hop on. The spacing of each platform also creates the illusion of height and sometimes layers of platforms.
+					
+					Different worlds will have different patterns of platforms. The key changes will change the spacing, size, and frequency of the platforms.
+					
+					Clicking tiles causes Q*bert to hop to that tile. Q*bert will then face in the direction of whichever way he just hopped while also playing the classic hopping sound effect from his game. The passage of time also causes the 2019 Q*bert main theme to play.</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Technical</h2>
+				<p>Using hashing, a random world is generated for what has been displayed on screen. Each tile has a chance to be a city tile. Each city tile is then given a range to determine its chape and size. Only city tiles and their respective populated areas are loaded in. All clicked tiles are saved into an array.</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Reflection</h2>
+				<p>Jack Wilhelm - This project was tricky put interesting. I think playing with perspectives to get the pseudo 3D look of Q*bert was really fun but did bring up a lot of challenges when determinig the slant of certain tiles in order to neatly and quickly chekc the tiles "above" it so it slanted correctly to be 3D. Making an infinite Q*bert level kind of goes against Q*bert because the whole point of the game is to step on every tile. But in this Q*bert world, that is impossible, leaving Q*bert with an goal that can never be completed and yet that is the only thing he is capable of is to keep trying.</p>
 			</div>
 
 		</section>
